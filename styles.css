@@ -5,8 +5,8 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -18,23 +18,63 @@ nav {
     gap: 20px;
     justify-content: center;
 }
+.centered-content {
+    display: flex;
+    justify-content: flex-end;
+    /* Align everything to the right */
+    align-items: center;
+    height: calc(100vh - height_of_navbar);
+    /* Adjust this value */
+}
+
+.text-container {
+    margin-right: 50px;
+    /* Adjust this value to create space between text and image */
+}
+
+.centered-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0px;
+}
+
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 select {
     appearance: none;
     border: none;
-    background-color: black;
+    background-color: white;
     font-size: inherit;
     color: inherit;
     padding: 0;
     cursor: pointer;   
 }
-footer {
-     background-color: #333;
-    color: white;
-    text-align: center;
-padding: 1rem;
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 0;  
+right: 0;
+
+
+}
+
+.social-icons li {
+  font-size: 18px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Change to your preferred hover color */
 }

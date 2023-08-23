@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="iamge/x-icon" href="images/academy_logo.ico">
+    <link rel="icon" type="iamge/x-icon" href="images/deen_khaalis_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>www.deenkhaalis.ac.ke</title>
 </head>
@@ -12,28 +13,52 @@
 <body>
     <header>
         <h1>Deen Khaalis Academy</h1>
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/dnkacademy" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.twitter.com/dnkacademy" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/dnkacademy" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/dnkacademy" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=254703409248" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+            <li><a href="mailto:deenkhaalis.ke@gmail.com"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="https://t.me/dnk_courses" target="_blank"><i class="fab fa-telegram"></i></a></li>
+
+        </ul>
+        
         <nav>
+        
             <a href="#">Home</a>
             <a href="#">About Us</a>
             <a href="#">Programs</a>
-    <select onchange="location = this.value;">
-        <option value="Portal"> Portals</option>
-        <option value="Staff"> Staff</option>
-        <option value="Student"> Student</option>
+    <select id="navigationSelect">
+        <option value ='#'> Portals</option>
+        <option value="staff.html" > Staff</option>
+        <option value="student.html"> Student</option>
     
     </select>
             <a href="#">Calendar</a>
             <a href="#">Contact</a>
+
         </nav>
 
     </header>
-    <img src="images/deen_khaalis_logo.png" alt="Logo" style="max-width: 100%; hight:auto;">
-
-    <footer>
-    <p>&copy; Deen Khaalis Academy was established 
-        in 2020 under the supervision of 
-        Sheikh Nurein ibn Uthmaan, Abu Uthmaan, Al-Jabarty.</p>
-</footer>
+        <p>
+            <div class="centered-content">
+                <div class="text-container">
+                <p>It is a program specifically for students of knowledge, with four semesters of classes spanning two years.
+                    
+                    The Goal of the Program:
+                    
+                    That the student graduates having studied a variety of Shari’ah sciences, and having gone through their various
+                    chapters, as this will be a key for him to build his path for further studies in the Shari’ah sciences.
+                    
+                    The first semester begins in September of each year, and ends in mid-December.
+                </p>
+                </div>
+            <div class="centered-image">
+                <img src="/images/academy_logo.ico" alt="logo" style="max-width:400px; hight: 200px;;">
+            </div>
+        </p>
+       
     <script src="script.js"></script>
 </body>
 
