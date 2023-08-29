@@ -1,0 +1,83 @@
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* Align items at the ends */
+  align-items: center;
+  /* Vertically center items */
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-list li {
+  margin-left: 15px;
+}
+
+.nav-list li:first-child {
+  margin-left: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+    /* Add spacing between icons */
+    color: white;
+    font-size: 19px;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+/* Styles for Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  /* Align social icons to the center */
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  /* Center align icons */
+  margin-top: 10px;
+  /* Add spacing above icons */
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  /* Add spacing between icons */
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footer .social-icons a:hover {
+  color: #999;
+  /* Change color on hover */
+}
