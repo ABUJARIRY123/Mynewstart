@@ -13,21 +13,19 @@ import Footer from './Footer';
 
 function App() {
   return (
-    
-      <div className="app">
-        <Header />
-        <div className="content">
-          <Sidebar />
-          <Routes>
-            <Route path="/" exact element={<Home/> } />
-            <Route path="/about" element={<AboutUs/>}/>
-            <Route path="/contacts" element={<Contacts/>}/> 
-            <Route path="/donate" element={<Donate/>} />
-          </Routes>
-        </div>
-        <Footer/>
+    <div className="app">
+      <Header />
+      <div className="content">
+        <Sidebar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/donate" element={<Donate />} />
+        </Routes>
       </div>
-  
+      <Footer />
+    </div>
   );
 }
 
