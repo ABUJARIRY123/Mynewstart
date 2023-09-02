@@ -11,8 +11,6 @@ import {
     faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
-
 function Header() {
     return (
         <header className="header">
@@ -25,19 +23,21 @@ function Header() {
                 <a href="https://www.twitter.com/dnkacademy"><FontAwesomeIcon icon={faTwitter} /></a>
                 <a href="https://www.youtube.com/dnkacademy"><FontAwesomeIcon icon={faYoutube} /></a>
             </div>
-            <h1 className="title">Deen Khaalis Academy</h1>
+            <h1 className="title">Deen Khaalis Da'awah</h1>
             <nav className="navbar">
                 <ul className="nav-list">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/portals">Portals</Link></li>
+                    <li><Link to="/portals">Academy</Link></li>
                     <li><Link to="/contacts">Contacts</Link></li>
                     <li><Link to="/donate">Donate</Link></li>
                 </ul>
                 
             </nav>
         </header>
+        
     );
+    <p>fukdshfksahfdkjsahfkjsahfffffjdsalkdlkajdlksadjsakdal</p>
 }
 
 export default Header;

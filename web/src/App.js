@@ -10,6 +10,7 @@ import Portals from './Portals';
 import Contacts from './Contacts';
 import Donate from './Donate';
 import Footer from './Footer';
+import SahihBukhaary from './SahihBukhaary';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/portals" element={<Portals />} />
+          <Route path="/category/sahih-bukhaary" element={<SahihBukhaary />} /> {/* Add this route */}
+
         </Routes>
       </div>
       <Footer />

@@ -22,7 +22,12 @@ function Footer() {
                 <a href="mailto:deenkhaalis.ke@gmail.com"><FontAwesomeIcon icon={faEnvelope} /></a>
                 <a href="https://www.twitter.com/dnkacademy"><FontAwesomeIcon icon={faTwitter} /></a>
                 <a href="https://www.youtube.com/dnkacademy"><FontAwesomeIcon icon={faYoutube} /></a>
+                <div className='footer-content'>
+                    <p>&copy; {new Date().getFullYear()} Deen Khaalis, All rights reserved.</p>
+                    {/* Other footer content */}
+                </div>
             </div>
+           
         </footer>
     );
 }
