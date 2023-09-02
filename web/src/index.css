@@ -140,3 +140,14 @@
   /* Set your desired background color here */
   /* Add other styling properties as needed */
 }
+.sidebar ul {
+  padding-left: 0;
+  /* Remove left padding for the top-level ul */
+  list-style-type: none;
+  /* Remove default list-style (bullets) */
+}
+
+.teacher-list {
+  margin-left: 0;
+  /* Remove left margin for the nested ul */
+}

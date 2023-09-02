@@ -1,67 +1,158 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import './index.css'
+import { faChevronCircleRight, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons';
+import './index.css';
 import { Link } from 'react-router-dom';
 
 function Sidebar() {
-    const categories = [
+    const Teachers = [
         {
-            name: "Tawheed",
-            contents: ["Kitaabu Tawheed ", "Fathul Majeed", "Qawaidul Arba'a", "Nawaqidh Al Islaam" ]
+            name: "Teacher 1",
+            categories: [
+                {
+                    name: "Tawheed",
+                    Books: [
+                        {
+                            name: "Kitaabu Tawheed",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Usulu Thalatha",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Qawaeed Arba",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        // Add other books
+                    ],
+                },
+                {
+                    name: "Hadeeth",
+                    Books: [
+                        {
+                            name: "Bukhaar",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Muslim",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Ibn Majah",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        // Add other books
+                    ],
+                },
+                // Add other categories
+            ],
         },
         {
-            name: "Kitaab",
-            contents: ["Tafseer", "Audio"]
+            name: "Teacher 2",
+            categories: [
+                {
+                    name: "Tawheed",
+                    Books: [
+                        {
+                            name: "Kitaabu Tawheed",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Usulu Thalatha",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Qawaeed Arba",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        // Add other books
+                    ],
+                },
+                {
+                    name: "Hadeeth",
+                    Books: [
+                        {
+                            name: "Bukhaar",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Muslim",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        {
+                            name: "Ibn Majah",
+                            Topics: ["Topic 1", "Topic 2"],
+                        },
+                        // Add other books
+                    ],
+                },
+                // Add other categories
+            ],
         },
-        {
-            name: "Hadeeth",
-            contents: ["Sahih Bukhaary", "Sahih Muslim", "Sunan Ibn Majah", "Sunan Abu Daud", "Sunan at Tirmidhy",
-        "Sunan an Nasai", "Arbauna ANnawawi"]
-        },
-        {
-            name: "Aqeedah",
-            contents: ["Usulu Sunnah Imam Ahmad", "Sharhu Sunnah Imam Barbahary", "Usulu Sunah Imam Abdullah Ibn Zubeir"]
-        },
-        {
-            name: "Fiqh",
-            contents: ["Bulughul Maraam", "Umdatul Ahqaam", "Al Muharar fil Hadeeth"]
-        },
-        {
-            name: "Seera",
-            contents: ["Rakheeq Makhtuum ", "Bidaya wa Nnihaya", "Qawaidul Arba'a", "Nawaqidh Al Islaam"]
-        },
-        {
-            name: "Lugha",
-            contents: ["Kitabu cha Kwanza ", "Kitabu cha Pili", "Qawaidul Arba'a", "Nawaqidh Al Islaam"]
-        },
-        
-        // Add other categories with their contents
+
+        // Add other teachers
     ];
+
     const [activeCategory, setActiveCategory] = useState(null);
+    const [activeBook, setActiveBook] = useState(null);
 
     const handleCategoryClick = (index) => {
         setActiveCategory(activeCategory === index ? null : index);
+        setActiveBook(null); // Close active book when switching categories
+    };
+
+    const handleBookClick = (bookIndex) => {
+        setActiveBook(activeBook === bookIndex ? null : bookIndex);
     };
 
     return (
         <aside className="sidebar">
             <ul>
-                {categories.map((category, index) => (
-                    <li key={category.name}>
+                <li>
+                    <h2>Shuyuukh</h2>
+                </li>
+                {Teachers.map((teacher, teacherIndex) => (
+                    <li key={teacher.name}>
                         <FontAwesomeIcon
                             icon={faChevronCircleRight}
-                            onClick={() => handleCategoryClick(index)}
-                            className={activeCategory === index ? 'active' : ''}
+                            onClick={() => handleCategoryClick(teacherIndex)}
+                            className={activeCategory === teacherIndex ? 'active' : ''}
                         />
-                        {category.name}
-                        {activeCategory === index && (
-                            <ul>
-                                {category.contents.map((content, idx) => (
-                                    <li key={idx}>
-                                        <Link to={`/category/${content.replace(/\s+/g, '-').toLowerCase()}`}>
-                                            {content}
-                                        </Link>
+                        {teacher.name}
+                        {activeCategory === teacherIndex && (
+                            <ul className="teacher-list">
+                                {teacher.categories.map((category, categoryIndex) => (
+                                    <li key={category.name}>
+                                        <FontAwesomeIcon
+                                            icon={activeBook === categoryIndex ? faChevronCircleDown : faChevronCircleRight}
+                                            onClick={() => handleBookClick(categoryIndex)}
+                                            className={activeBook === categoryIndex ? 'active' : ''}
+                                        />
+                                        {category.name}
+                                        {activeBook === categoryIndex && (
+                                            <ul className="book-list">
+                                                {category.Books.map((book, bookIndex) => (
+                                                    <li key={book.name}>
+                                                        <Link to={`/category/${category.name.replace(/\s+/g, '-').toLowerCase()}/${book.name.replace(/\s+/g, '-').toLowerCase()}`}>
+                                                            <FontAwesomeIcon icon={faChevronCircleRight} className="book-icon" />
+                                                            {book.name}
+                                                        </Link>
+                                                        {activeBook === bookIndex && (
+                                                            <ul className="topic-list">
+                                                                {book.Topics.map((topic) => (
+                                                                    <li key={topic}>
+                                                                        <Link to={`/topic/${topic.replace(/\s+/g, '-').toLowerCase()}`}>
+                                                                            {topic}
+                                                                        </Link>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
