@@ -14,15 +14,12 @@ function Sidebar() {
                     Books: [
                         {
                             name: "Kitaabu Tawheed",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Usulu Thalatha",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Qawaeed Arba",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         // Add other books
                     ],
@@ -32,15 +29,12 @@ function Sidebar() {
                     Books: [
                         {
                             name: "Bukhaar",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Muslim",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Ibn Majah",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         // Add other books
                     ],
@@ -56,15 +50,12 @@ function Sidebar() {
                     Books: [
                         {
                             name: "Kitaabu Tawheed",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Usulu Thalatha",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Qawaeed Arba",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         // Add other books
                     ],
@@ -73,16 +64,13 @@ function Sidebar() {
                     name: "Hadeeth",
                     Books: [
                         {
-                            name: "Bukhaar",
-                            Topics: ["Topic 1", "Topic 2"],
+                            name: "Sahih Bukhaar",
                         },
                         {
                             name: "Muslim",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         {
                             name: "Ibn Majah",
-                            Topics: ["Topic 1", "Topic 2"],
                         },
                         // Add other books
                     ],
@@ -90,7 +78,6 @@ function Sidebar() {
                 // Add other categories
             ],
         },
-
         // Add other teachers
     ];
 
@@ -99,7 +86,7 @@ function Sidebar() {
 
     const handleCategoryClick = (index) => {
         setActiveCategory(activeCategory === index ? null : index);
-        setActiveBook(null); // Close active book when switching categories
+        setActiveBook(null);
     };
 
     const handleBookClick = (bookIndex) => {
@@ -108,22 +95,22 @@ function Sidebar() {
 
     return (
         <aside className="sidebar">
-            <ul>
+            <ul className="teacher-list">
                 <li>
-                    <h2>Shuyuukh</h2>
+                    <h3>Shuyuukh</h3>
                 </li>
                 {Teachers.map((teacher, teacherIndex) => (
-                    <li key={teacher.name}>
+                    <li key={teacher.name} className="teacher-item">
                         <FontAwesomeIcon
-                            icon={faChevronCircleRight}
+                            icon={activeCategory === teacherIndex ? faChevronCircleDown : faChevronCircleRight}
                             onClick={() => handleCategoryClick(teacherIndex)}
                             className={activeCategory === teacherIndex ? 'active' : ''}
                         />
                         {teacher.name}
                         {activeCategory === teacherIndex && (
-                            <ul className="teacher-list">
+                            <ul className="category-list">
                                 {teacher.categories.map((category, categoryIndex) => (
-                                    <li key={category.name}>
+                                    <li key={category.name} className="category-item">
                                         <FontAwesomeIcon
                                             icon={activeBook === categoryIndex ? faChevronCircleDown : faChevronCircleRight}
                                             onClick={() => handleBookClick(categoryIndex)}
@@ -132,23 +119,11 @@ function Sidebar() {
                                         {category.name}
                                         {activeBook === categoryIndex && (
                                             <ul className="book-list">
-                                                {category.Books.map((book, bookIndex) => (
-                                                    <li key={book.name}>
-                                                        <Link to={`/category/${category.name.replace(/\s+/g, '-').toLowerCase()}/${book.name.replace(/\s+/g, '-').toLowerCase()}`}>
-                                                            <FontAwesomeIcon icon={faChevronCircleRight} className="book-icon" />
+                                                {category.Books.map((book) => (
+                                                    <li key={book.name} className="book-item">
+                                                        <Link to={`/download/${book.name.replace(/\s+/g, '-').toLowerCase()}`}>
                                                             {book.name}
                                                         </Link>
-                                                        {activeBook === bookIndex && (
-                                                            <ul className="topic-list">
-                                                                {book.Topics.map((topic) => (
-                                                                    <li key={topic}>
-                                                                        <Link to={`/topic/${topic.replace(/\s+/g, '-').toLowerCase()}`}>
-                                                                            {topic}
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>
