@@ -24,7 +24,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/portals" element={<Portals />} />
-          <Route path="/category/sahih-bukhaary" element={<Sidebar />} /> {/* Add this route */}
+          <Route path="/category/teacher2/hadeeth/sahih-bukhaary" element={<Sidebar />} /> {/* Add this route */}
 
         </Routes>
       </div>
