@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Home from './Home';
-import AboutUs from './AboutUs';
-import Portals from './Portals';
-import Contacts from './Contacts';
-import Donate from './Donate';
-import Footer from './Footer';
-import SahihBukhaary from './SahihBukhaary';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Home from "./Home";
+import AboutUs from "./AboutUs";
+import Portals from "./Portals";
+import Contacts from "./Contacts";
+import Donate from "./Donate";
+import Footer from "./Footer";
+import SahihBukhaary from "./SahihBukhaary";
 
 function App() {
   return (
@@ -24,8 +24,9 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/portals" element={<Portals />} />
-          <Route path="/category/teacher2/hadeeth/sahih-bukhaary" element={<Sidebar />} /> {/* Add this route */}
-
+          <Route path="/category" element={<Sidebar />}>
+            <Route path="sahih-bukhaary" element={<SahihBukhaary />} />
+          </Route>{" "}
         </Routes>
       </div>
       <Footer />
