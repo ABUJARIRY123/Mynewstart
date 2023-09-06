@@ -133,9 +133,7 @@ function Sidebar() {
                       <ul className="book-list">
                         {category.Books.map((book) => (
                           <li key={book.name} className="book-item">
-                            <Link
-                              to={`/category/sahih-bukhaary`}
-                            >
+                            <Link to={`/category/sahih-bukhaary`}>
                               {book.name}
                             </Link>
                           </li>
